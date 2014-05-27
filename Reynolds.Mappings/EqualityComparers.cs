@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Reynolds.Mappings
 {
-	class ReferenceTypeArrayEqualityComparer<T> : IEqualityComparer<T[]>, IComparer<T[]> where T : class, IComparable<T>
+	public class ReferenceTypeArrayEqualityComparer<T> : IEqualityComparer<T[]>, IComparer<T[]> where T : class, IComparable<T>
 	{
 		protected ReferenceTypeArrayEqualityComparer()
 		{
