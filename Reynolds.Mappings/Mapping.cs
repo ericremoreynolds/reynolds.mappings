@@ -263,13 +263,16 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			var keys = ((IEnumerable<TKey>) _inner).ToArray();
+			TKey[] keys;
+			lock(_inner)
+			{
+				keys = ((IEnumerable<TKey>) _inner).ToArray();
+			}
 			foreach(var key in keys)
 			{
 				lock(_inner)
 				{
 					WeakReference r;
-					object v;
 					if(_inner.TryGetValue(key, out r) && !r.IsAlive)
 					{
 						_inner.Remove(key);
