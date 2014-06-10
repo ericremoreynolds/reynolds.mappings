@@ -263,7 +263,7 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			TKey[] keys;
+			TKey keys;
 			lock(_inner)
 			{
 				keys = ((IEnumerable<TKey>) _inner).ToArray();
@@ -273,6 +273,7 @@ namespace Reynolds.Mappings
 				lock(_inner)
 				{
 					WeakReference r;
+					object v;
 					if(_inner.TryGetValue(key, out r) && !r.IsAlive)
 					{
 						_inner.Remove(key);
@@ -680,7 +681,11 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			var keys = ((IEnumerable<Tuple<TKey1, TKey2>>) _inner).ToArray();
+			Tuple<TKey1, TKey2> keys;
+			lock(_inner)
+			{
+				keys = ((IEnumerable<Tuple<TKey1, TKey2>>) _inner).ToArray();
+			}
 			foreach(var key in keys)
 			{
 				lock(_inner)
@@ -1108,7 +1113,11 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			var keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3>>) _inner).ToArray();
+			Tuple<TKey1, TKey2, TKey3> keys;
+			lock(_inner)
+			{
+				keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3>>) _inner).ToArray();
+			}
 			foreach(var key in keys)
 			{
 				lock(_inner)
@@ -1550,7 +1559,11 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			var keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3, TKey4>>) _inner).ToArray();
+			Tuple<TKey1, TKey2, TKey3, TKey4> keys;
+			lock(_inner)
+			{
+				keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3, TKey4>>) _inner).ToArray();
+			}
 			foreach(var key in keys)
 			{
 				lock(_inner)
@@ -2006,7 +2019,11 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			var keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3, TKey4, TKey5>>) _inner).ToArray();
+			Tuple<TKey1, TKey2, TKey3, TKey4, TKey5> keys;
+			lock(_inner)
+			{
+				keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3, TKey4, TKey5>>) _inner).ToArray();
+			}
 			foreach(var key in keys)
 			{
 				lock(_inner)
