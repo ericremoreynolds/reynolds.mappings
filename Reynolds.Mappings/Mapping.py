@@ -225,7 +225,7 @@ with block("namespace Reynolds.Mappings"):
 					stmt("_instantiator = instantiator")
 					stmt("_contains = contains")
 				with block("protected override void Cleanup()"):
-					stmt("$Tuple<TKeys>$ keys")
+					stmt("$Tuple<TKeys>$[] keys")
 					with block("lock(_inner)"):
 						stmt("keys = ((IEnumerable<$Tuple<TKeys>$>) _inner).ToArray()")
 					with block("foreach(var key in keys)"):

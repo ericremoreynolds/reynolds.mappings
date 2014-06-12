@@ -263,7 +263,7 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			TKey keys;
+			TKey[] keys;
 			lock(_inner)
 			{
 				keys = ((IEnumerable<TKey>) _inner).ToArray();
@@ -681,7 +681,7 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			Tuple<TKey1, TKey2> keys;
+			Tuple<TKey1, TKey2>[] keys;
 			lock(_inner)
 			{
 				keys = ((IEnumerable<Tuple<TKey1, TKey2>>) _inner).ToArray();
@@ -1113,7 +1113,7 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			Tuple<TKey1, TKey2, TKey3> keys;
+			Tuple<TKey1, TKey2, TKey3>[] keys;
 			lock(_inner)
 			{
 				keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3>>) _inner).ToArray();
@@ -1559,7 +1559,7 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			Tuple<TKey1, TKey2, TKey3, TKey4> keys;
+			Tuple<TKey1, TKey2, TKey3, TKey4>[] keys;
 			lock(_inner)
 			{
 				keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3, TKey4>>) _inner).ToArray();
@@ -2019,7 +2019,7 @@ namespace Reynolds.Mappings
 		}
 		protected override void Cleanup()
 		{
-			Tuple<TKey1, TKey2, TKey3, TKey4, TKey5> keys;
+			Tuple<TKey1, TKey2, TKey3, TKey4, TKey5>[] keys;
 			lock(_inner)
 			{
 				keys = ((IEnumerable<Tuple<TKey1, TKey2, TKey3, TKey4, TKey5>>) _inner).ToArray();
